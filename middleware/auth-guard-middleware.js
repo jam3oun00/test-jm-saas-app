@@ -1,13 +1,21 @@
+// import authGuard from '~/plugins/auth-guard-plugin'
+
+// export default function ({ redirect, store, route }) {
+//    console.log('MIDDLEWARE AUTH GUARD')
+//    authGuard({ redirect, store, route })
+// }
+
 import { auth, onAuthStateChanged } from '@/firebase'
 const routeStartWith = (route, word) => route.matched[0].path.startsWith(word)
-const match = (route, word) => route.matched[0].path === word
+// const match = (route, word) => route.matched[0].path === word
 
 export default function ({ redirect, store, route }) {
-   console.warn(route)
+   store.commit('utils/setPageLoader', true)
    onAuthStateChanged(auth, (user) => {
       console.log(routeStartWith(route, '/auth') ? 'you are in auth route' : 'you are not in auth route', '😊')
-      console.log('AUTH STATE CHANGED', { ...user })
+      console.log('AUTH STATE CHANGED', user)
 
+      store.commit('utils/setPageLoader', false)
       if (user) {
          store.commit('auth/setUser', user)
          if (routeStartWith(route, '/auth')) redirect('/')

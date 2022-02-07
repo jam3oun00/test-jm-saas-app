@@ -1,7 +1,7 @@
 <template>
-   <v-app>
+   <jm-app>
       <nuxt />
-   </v-app>
+   </jm-app>
 </template>
 <script>
 export default {}

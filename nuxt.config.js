@@ -18,13 +18,13 @@ export default {
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
    },
    css: [],
-   plugins: [{ src: '@/plugins/auth-guard', ssr: false }],
-   components: true,
+   // plugins: [{ src: '@/plugins/auth-guard-plugin', ssr: false }],
+   components: ['@/components/base'],
    buildModules: ['@nuxtjs/vuetify'],
    modules: ['@nuxtjs/axios'],
-   // router: {
-   //    middleware: ['auth-guard'],
-   // },
+   router: {
+      middleware: ['auth-guard-middleware'],
+   },
    axios: {
       baseURL: '/',
    },

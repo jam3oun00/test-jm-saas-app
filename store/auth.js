@@ -80,7 +80,7 @@ export const actions = {
    // LOGIN
    loginWithEmailAndPassword({ commit }, { email, password }) {
       return new Promise((resolve, reject) => {
-         signInWithEmailAndPassword(email, password)
+         signInWithEmailAndPassword(auth, email, password)
             .then(({ user }) => {
                console.log(user)
                commit('setUser', user)

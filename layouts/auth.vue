@@ -1,8 +1,8 @@
 <template>
-   <v-app>
+   <jm-app>
       <h2 class="display-1 text-center">auth</h2>
       <nuxt />
-   </v-app>
+   </jm-app>
 </template>
 <script>
 export default {}

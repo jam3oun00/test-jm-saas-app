@@ -24,6 +24,7 @@
 </template>
 <script>
 export default {
+   layout: 'auth',
    data() {
       return {
          valid: true,
